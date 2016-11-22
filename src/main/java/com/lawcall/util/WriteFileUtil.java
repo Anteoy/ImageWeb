@@ -1,0 +1,34 @@
+package com.lawcall.util;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.OutputStream;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class WriteFileUtil {
+
+	/**
+	 * 将文件通过字节码形式输出到浏览器
+	 * @param file
+	 * @param response
+	 */
+	public static void writeFile(String filePath, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			String path = request.getSession().getServletContext().getRealPath("/") + "/" + filePath;
+			File file = new File(path);
+			FileInputStream fis = new FileInputStream(file);
+			OutputStream os = response.getOutputStream();
+			int read = -1;
+			while ((read = fis.read()) != -1) {
+				os.write(read);
+			}
+			fis.close();
+			os.flush();
+			os.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

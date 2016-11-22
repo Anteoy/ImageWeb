@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<title>成都天健医院头像管理平台</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<link rel="stylesheet" type="text/css" href="jquery/themes/default/easyui.css" />
+		<link rel="stylesheet" type="text/css" href="jquery/themes/icon.css" />
+		<script type="text/javascript" src="jquery/jquery.min.js"></script>
+		<script type="text/javascript" src="jquery/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="jquery/locale/easyui-lang-zh_CN.js"></script>
+		<script type="text/javascript" src="js/framework.js"></script>
+		<style>
+			#toolbar {
+				background:#f4f4f4 url(images/bg.gif) repeat top left;
+				font-size: 12px;
+				padding: 5px;
+			}
+		</style>
+	</head>
+
+	<body class="easyui-layout">
+		<div region="center">
+			<table id="dg" class="easyui-datagrid" style="width:700px;height:250px"
+				fit="true" singleSelect="true" method="post"
+				rownumbers="true" pagination="true" url="touxiang/getAll.do">
+				<thead>
+					<tr>
+						<th data-options="field:'bh'">头像编号</th>
+						<th data-options="field:'wjm'">头像名称</th>
+						<th data-options="field:'tx_shangcsj'">上传时间</th>
+						<th data-options="field:'tx_wenjdx'">文件大小(B)</th>
+						<th data-options="field:'tx_changd'">头像长度</th>
+						<th data-options="field:'tx_kuand'">头像长度</th>
+						<th data-options="field:'tx_wenjgs',width:50">文件格式</th>
+						
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<script type="text/javascript">
+			function reload() {
+				var params = $$.serializeObject($("#searchForm"));
+				$("#dg").datagrid("reload", params)
+			}
+		</script>
+	</body>
+
+</html>

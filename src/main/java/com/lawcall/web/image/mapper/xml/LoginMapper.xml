@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.lawcall.web.image.mapper.LoginMapper">
+
+	<select id="hqyh" resultType="com.lawcall.web.image.entity.UserInfo">
+		select * from t_yonghu
+		<trim prefix="where" prefixOverrides="and">
+			<if test="yonghm != null">
+				and yonghm=#{yonghm}
+			</if>
+			<if test="mim != null">
+				and mim=#{mim}
+			</if>
+		</trim>
+	</select>
+
+	<update id="xgmm">
+		update t_yonghu set mim=#{mim} where bh=#{bh}
+	</update>
+
+	<insert id="xzyh" parameterType="com.lawcall.web.image.entity.UserInfo">
+		insert into t_yonghu(yonghm, mim, mingc, yisy, yue)
+		values (#{yonghm}, #{mim}, #{mingc}, #{yisy}, #{yue})
+	</insert>
+
+</mapper>

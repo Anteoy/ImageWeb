@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!--
+  @filename YishengMapper.xml
+  @directory /src/com/tianjxx/web/info/mapper/xml
+  @description 医生表实体
+  @author 胡正卫
+  @date 2015-06-23 15:20:39
+  @version v0.1
+-->
+<mapper namespace="com.tianjxx.web.image.mapper.TupianMapper" >
+
+	<select id="get" resultType="String">
+		select wjm from t_tupian where BH=#{tpbh}
+	</select>
+	
+	<select id="get_yy" resultType="String">
+		select wjm from t_yuyin where bh=#{bh}
+	</select>
+	
+	<insert id="tuPianShangChuang">
+		insert into t_tupian(wjm,tp_shangcsj,tp_wenjdx,tp_kuand,tp_changd,tp_wenjgs)
+					values (#{wjm},#{tp_shangcsj},#{tp_wenjdx},#{tp_kuand},#{tp_changd},#{tp_wenjgs})
+	</insert>
+	<!-- 语音上传 -->
+	<insert id="yyShangChuang">
+		insert into t_yuyin(wjm,shangcsj,wenjdx,wenjgs) values
+							(#{wjm},#{shangcsj},#{wenjdx},#{wenjgs})
+	</insert>
+	
+	<select id="chaxunbh" resultType="int">
+		select currval('t_tupian_bh_seq')
+	</select>
+	
+	<select id="chaxunbh_yy" resultType="int">
+		select currval('t_yuyin_bh_seq')
+	</select>
+	
+	<delete id="shanChuTuPian" >
+ 		delete FROM t_tupian where bh=#{tupbh}
+ 	</delete>
+ 	
+ 	
+ 	
+ 	<!-- 展示所有图片信息 -->
+ 	<select id="chaxsy" resultType="com.tianjxx.web.image.entity.TuPian">
+ 		select * from t_tupian
+ 	</select>
+ 	
+ 	<!-- 展示详细图片信息 -->
+ 	<select id="getTpjt" resultType="com.tianjxx.web.image.entity.TuPian">
+ 		select * from t_tupian where bh = #{tupbh}
+ 	</select>
+ 	
+</mapper>

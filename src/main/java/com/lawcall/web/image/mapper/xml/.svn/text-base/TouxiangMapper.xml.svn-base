@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.tianjxx.web.image.mapper.TouxiangMapper" >
+
+	<select id="get" resultType="String">
+		select wjm from t_touxiang where BH=#{txbh}
+	</select>
+	
+	<insert id="touXiangShangChuang">
+		insert into t_touxiang(wjm,tx_shangcsj,tx_wenjdx,tx_kuand,tx_changd,tx_wenjgs)
+					values (#{wjm},#{tx_shangcsj},#{tx_wenjdx},#{tx_kuand},#{tx_changd},#{tx_wenjgs})
+	</insert>
+	
+	<select id="chaxunbh" resultType="int">
+		select currval('t_touxiang_bh_seq');
+	</select>
+	
+	<delete id="shanChuTouXiang">
+ 		delete FROM t_touxiang where bh=#{touxbh}
+ 	</delete>
+ 	
+ 	<!-- 以下为manager管理新增mapper -->
+ 	
+ 	<!-- 展示所有头像信息 -->
+ 	<select id="chaxsy" resultType="com.tianjxx.web.image.entity.TouXiang">
+ 		select * from t_touxiang
+ 	</select>
+ 	
+ 	<select id="count" resultType="int">
+ 		select count(*) from t_touxiang
+ 	</select>
+ 	
+ 	<select id="getTxjt" resultType="com.tianjxx.web.image.entity.TouXiang">
+ 		select * from t_touxiang where bh=#{touxbh}
+ 	</select>
+ 	
+</mapper>

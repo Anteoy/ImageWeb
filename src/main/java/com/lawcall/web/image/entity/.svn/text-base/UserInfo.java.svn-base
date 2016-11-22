@@ -1,0 +1,82 @@
+package com.tianjxx.web.image.entity;
+
+public class UserInfo {
+
+	/** 编号 */
+	private Integer bh;
+
+	/** 登陆用户名 */
+	private String yonghm;
+
+	/** 登陆密码 */
+	private String mim;
+
+	/** 用户名称 */
+	private String mingc;
+
+	/** 已使用短信 */
+	private Integer yisy;
+
+	/** 短信余额 */
+	private Integer yue;
+
+	/** 上次请求时间 */
+	private long lastRequest = 0;
+
+	public Integer getBh() {
+		return bh;
+	}
+
+	public void setBh(Integer bh) {
+		this.bh = bh;
+	}
+
+	public String getYonghm() {
+		return yonghm;
+	}
+
+	public void setYonghm(String yonghm) {
+		this.yonghm = yonghm;
+	}
+
+	public String getMim() {
+		return mim;
+	}
+
+	public void setMim(String mim) {
+		this.mim = mim;
+	}
+
+	public String getMingc() {
+		return mingc;
+	}
+
+	public void setMingc(String mingc) {
+		this.mingc = mingc;
+	}
+
+	public Integer getYisy() {
+		return yisy;
+	}
+
+	public void setYisy(Integer yisy) {
+		this.yisy = yisy;
+	}
+
+	public Integer getYue() {
+		return yue;
+	}
+
+	public void setYue(Integer yue) {
+		this.yue = yue;
+	}
+
+	public long getLastRequest() {
+		return lastRequest;
+	}
+
+	public void setLastRequest(long lastRequest) {
+		this.lastRequest = lastRequest;
+	}
+
+}

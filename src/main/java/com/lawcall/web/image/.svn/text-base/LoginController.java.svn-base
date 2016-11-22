@@ -1,0 +1,49 @@
+package com.tianjxx.web.image;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.json.MappingJacksonJsonView;
+
+import com.tianjxx.web.image.entity.UserInfo;
+import com.tianjxx.web.image.mapper.LoginMapper;
+
+@Controller
+public class LoginController {
+
+	@Autowired
+	private MappingJacksonJsonView mappingJacksonJsonView;
+
+	@Autowired
+	private LoginMapper loginMapper;
+
+	/**
+	 * 登陆系统
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	@RequestMapping("login")
+	public ModelAndView login(HttpServletRequest request, HttpServletResponse response){
+
+		String yonghm=request.getParameter("yonghm");
+		String mim=request.getParameter("mim");
+
+		UserInfo userInfo = loginMapper.hqyh(yonghm, mim);
+		Map<String,Object>map=new HashMap<String, Object>();
+		if (userInfo != null) {
+			map.put("success", 1);
+		} else {
+			map.put("success", 0);
+		}
+		return new ModelAndView(mappingJacksonJsonView, map);
+	}
+
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" http-equiv="Content-Type" />
+</head>
+<body>
+    <h2>图片管理测试</h2>
+     <div style="float:right; width: 60%">
+    <iframe width="100%" height=60 name=aa id=aa border=1 ></iframe>
+    </div>
+    <p>储存头像接口测试</p>
+    <form action="toux/shangc.do" method="post" enctype="multipart/form-data" target="aa">  
+    <input type="file" name="file" /> <input type="submit" value="头像上传" /></form>
+        <hr />   
+          <div style="float:right; width: 60%">
+    <iframe width="100%" height=60 name=cc id=cc border=1 ></iframe>
+    </div>
+    <p>储存图片测试</p>
+    <form action="tup/shangc.do" method="post" enctype="multipart/form-data" target="cc">  
+    <input type="file" name="file" /> <input type="submit" value="图片上传" /></form> 
+    <hr />
+    
+     <div style="float:right; width: 60%">
+    <iframe width="100%" height=151 name=bb id=bb border=1 ></iframe>
+    </div>
+    <p>获取头像接口测试</p>
+    <form action="touxiang.do" method="post"  target="bb">
+    	<label>编号：<input type="text" name="touxbh"  /></label><br />
+    	<br />
+    	<br />
+    	<br />
+        <br />
+    	<input type="submit" name="submit" value="点击发送" /><br />
+    	<br />
+    </form>
+     <hr />
+     
+     <div style="float:right; width: 60%">
+    <iframe width="100%" height=151 name=ee id=ee border=1 ></iframe>
+    </div>
+     <p>头像删除</p>
+    <form action="toux/shanc.do" method="post" target="ee">
+    	<label>编号：<input type="text" name="touxbh" /></label><br />
+    	<br />
+    	<br />
+    	<br />
+    	<br />
+    	<input type="submit" name="submit" value="点击发送" /><br />
+    	<br />
+    </form>
+    <hr />
+     
+    <div style="float:right; width: 60%">
+    <iframe width="100%" height=151 name=ff id=ff border=1 ></iframe>
+    </div>
+     <p>图片删除</p>
+    <form action="tup/shanc.do" method="post" target="ff">
+    	<label>编号：<input type="text" name="tupbh" /></label><br />
+    	<br />
+    	<br />
+    	<br />
+    	<br />
+    	<input type="submit" name="submit" value="点击发送" /><br />
+    	<br />
+    </form>
+    <hr />
+   
+    
+    <div style="float:right; width: 60%">
+    <iframe width="100%" height=151 name=qq id=qq border=1 ></iframe>
+    </div>
+    <p>获取图片接口测试</p>
+    <form action="tupian.do" method="post" target="qq">
+    	<label>编号：<input type="text" name="tupbh" /></label><br />
+    	<br />
+    	<br />
+    	<br />
+    	<br />
+    	<input type="submit" name="submit" value="点击发送" /><br />
+    	<br />
+    </form>
+    <hr />
+    
+    <div style="float:right; width: 60%">
+    <iframe width="100%" height=151 name=jt id=jt border=1 ></iframe>
+    </div>
+    <!-- <p>获取头像具体信息接口测试</p>
+    <form action="touxiang/getTxjt.do" method="post" target="jt">
+    	<label>编号：<input type="text" name="bh" /></label><br />
+    	<br />
+    	<br />
+    	<br />
+    	<br />
+    	<input type="submit" name="submit" value="点击发送" /><br />
+    	<br />
+    </form>
+    <hr />
+     -->
+     <!--  <div style="float:right; width: 60%">
+    <iframe width="100%" height=151 name=tp id=tp border=1 ></iframe>
+    </div>
+    <p>获取图片具体信息接口测试</p>
+    <form action="touxiang/getTpjt.do" method="post" target="tp">
+    	<label>编号：<input type="text" name="bh" /></label><br />
+    	<br />
+    	<br />
+    	<br />
+    	<br />
+    	<input type="submit" name="submit" value="点击发送" /><br />
+    	<br />
+    </form>
+    <hr /> -->
+</body>
+</html>

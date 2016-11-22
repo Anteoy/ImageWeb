@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" http-equiv="Content-Type" />
+</head>
+<body>
+	<h2>语音管理测试</h2>
+	<p>储存语音测试</p>
+	<form action="yuy/shangc.do" method="post" enctype="multipart/form-data" target="cc">  
+	<input type="file" name="file" /> <input type="submit" value="语音上传" /></form> 
+    <hr />
+	
+		  <div style="float:right; width: 60%">
+    <iframe width="100%" height=60 name=cc id=cc border=1 ></iframe>
+    </div>
+	
+     <div style="float:right; width: 60%">
+    <iframe width="100%" height=151 name=bb id=bb border=1 ></iframe>
+    </div>
+	<p>获取语音接口测试</p>
+	<form action="yuyin.do" method="post"  target="bb">
+    	<label>编号：<input type="text" name="yybh"  /></label><br />
+    	<br />
+    	<br />
+    	<br />
+		<br />
+    	<input type="submit" name="submit" value="点击发送" /><br />
+    	<br />
+    </form>
+     <hr />
+     
+   
+</body>
+</html>

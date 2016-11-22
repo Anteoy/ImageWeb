@@ -1,0 +1,112 @@
+<html>
+	<head>
+		<title>成都天健医院图片管理平台</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<link rel="stylesheet" type="text/css" href="jquery/themes/default/easyui.css" />
+		<link rel="stylesheet" type="text/css" href="jquery/themes/icon.css" />
+		<script type="text/javascript" src="jquery/jquery.min.js"></script>
+		<script type="text/javascript" src="jquery/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="jquery/locale/easyui-lang-zh_CN.js"></script>
+		
+		<style>
+			div {
+				background:#f4f4f4 url(images/bg.gif) repeat top left;
+			}
+			ul {
+				padding-left: 0px;
+				margin: 0px;
+			}
+			li {
+				font-weight: bold;
+				list-style-type: none;
+				text-align: center;
+				margin-top: 1px;
+				padding-top: 10px;
+				padding-bottom: 10px;
+				background-color: #eef4ff;
+				cursor: pointer;
+				line-height: 14px;
+			}
+			li:HOVER {
+				background-color: #e0ecff;
+			}
+			
+			a:link, a:active, a:hover {
+				text-decoration:none;
+			}
+			#mingc {
+				font-weight: bold;
+			}
+		</style>
+	</head>
+
+	<body class="easyui-layout">
+	
+		<div data-options="region:'west',split:true,title:'管理'" style="width:500px;">
+			<div>
+				<ul>
+					<li><a href="tupiangetAll.html" target="main_iframe">➤ 图片信息</a></li>
+	<div style="float:right; width: 60%">
+    <iframe width="80%" height=60 name=cc id=cc border=1 ></iframe>
+    </div>
+	<p>储存图片测试</p>
+	<form action="tup/shangc.do" method="post" enctype="multipart/form-data" target="cc">  
+	<input type="file" name="file" /> <input type="submit" value="图片上传" /></form> 
+    <hr />
+    </form>
+    <hr />
+    <div style="float:right; width: 60%">
+    <iframe width="80%" height=151 name=ff id=ff border=1 ></iframe>
+    </div>
+     <p>图片删除</p>
+	<form action="tup/shanc.do" method="post" target="ff">
+    	<label>编号：<input type="text" name="tupbh" /></label><br />
+    	<br />
+    	<br />
+    	<br />
+    	<br />
+    	<input type="submit" name="submit" value="点击发送" /><br />
+    	<br />
+    </form>
+    <hr />
+    <div style="float:right; width: 60%">
+    <iframe width="80%" height=151 name=qq id=qq border=1 ></iframe>
+    </div>
+	<p>获取图片接口测试</p>
+	<form action="tupian.do" method="post" target="qq">
+    	<label>编号：<input type="text" name="tupbh" /></label><br />
+    	<br />
+    	<br />
+    	<br />
+    	<br />
+    	<input type="submit" name="submit" value="点击发送" /><br />
+    	<br />
+    </form>
+    <hr />
+	   <div style="float:right; width: 60%">
+    <iframe width="80%" height=151 name=tp id=tp border=1 ></iframe>
+    </div>
+	<p>获取图片具体信息接口测试</p>
+	<form action="touxiang/getTpjt.do" method="post" target="tp">
+    	<label>编号：<input type="text" name="bh" /></label><br />
+    	<br />
+    	<br />
+    	<br />
+    	<br />
+    	<input type="submit" name="submit" value="点击发送" /><br />
+    	<br />
+    </form>
+    <hr />
+		
+				
+			</div>
+		</div>
+		<div data-options="region:'center',title:'成都天健医院图片管理平台'">
+			<iframe id="main_iframe" name="main_iframe" scrolling="no" frameborder="0" src="tupiangetAll.html" style="width:100%; height: 100%;"></iframe>
+		</div>
+
+		<script type="text/javascript">
+		</script>
+	</body>
+
+</html>

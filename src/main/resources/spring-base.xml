@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc"
+	   xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	http://www.springframework.org/schema/mvc 
+	http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+	<import resource="classpath*:spring-config.xml"/>
+
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactorysBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocations">
+			<list>
+				<value>classpath:mybatis-base.xml</value>
+				<value>classpath:mybatis-config.xml</value>
+			</list>
+		</property>
+		<property name="mapperLocations" value="classpath*:com/lawcall/web/image/mapper/xml/*.xml" />
+	</bean>
+
+		<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+			<property name="basePackage" value="com.lawcall.web.*.mapper" />
+		</bean> 
+
+	<!-- <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+
+		<property name="TouxiangMapper"  value="com.lawcall.web.image.mapper.TouxiangMapper" />
+	</bean> -->
+
+	<context:component-scan base-package="com.lawcall.web.*.services">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+	</context:component-scan>
+	
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="multipartResolver"
+		  class="com.lawcall.web.image.resolver.CustomMultipartResolver">
+		<property name="defaultEncoding" value="UTF-8"/>
+		<property name="maxUploadSize" value="1048576000000"/>
+		<property name="maxInMemorySize" value="4096"/>
+	</bean>
+</beans>
